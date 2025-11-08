@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1ot6gn6tms6h"]
+[gd_scene load_steps=14 format=3 uid="uid://b1ot6gn6tms6h"]
 
 [ext_resource type="Script" uid="uid://d1uysaykwlsor" path="res://lesson_reference/player_3d_template.gd" id="1_dpokc"]
 [ext_resource type="PackedScene" uid="uid://cycdhppywhsqf" path="res://player/sophia_skin/model/Robot.glb" id="2_jgkwk"]
@@ -8,6 +8,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e8pdu"]
 radius = 0.4
+height = 1.7646484
 
 [sub_resource type="Curve" id="Curve_3f17x"]
 _data = [Vector2(0, 0.742241), 0.0, 0.0, 0, 0, Vector2(0.139952, 0.986755), 0.129787, 0.129787, 0, 0, Vector2(0.631579, 1), 0.0, 0.0, 0, 0, Vector2(0.785885, 0.873668), -1.98736, -1.98736, 0, 0, Vector2(1, 0.0148119), -5.26067, 0.0, 0, 0]
@@ -48,15 +49,17 @@ rings = 8
 length = 0.5
 slide_on_slope = true
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vre6p"]
+height = 1.1655884
+
 [node name="Player3DTemplate" type="CharacterBody3D"]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_dpokc")
-acceleration = 30.0
 
 [node name="CharacterCollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8823242, 0)
 shape = SubResource("CapsuleShape3D_e8pdu")
 
 [node name="Robot" parent="." instance=ExtResource("2_jgkwk")]
@@ -97,3 +100,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 3.19744e-14, 2.13163e-14, 0, 1, 0, 0, 0, 1, -2.4869e-14, 2.38419e-07, 10)
 current = true
 fov = 50.0
+
+[node name="AttackArea" type="Area3D" parent="."]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea"]
+transform = Transform3D(1, 0, 0, 0, -0.031794596, -0.99949443, 0, 0.99949443, -0.031794596, 0, 0.45174658, 0.46686754)
+shape = SubResource("CapsuleShape3D_vre6p")
+debug_color = Color(0.8415845, 0.17031267, 0.8335685, 0.41960785)

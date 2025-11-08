@@ -11,12 +11,18 @@ func idle():
 		anim_player.play("Idle")
 
 func jump():
-	if anim_player and anim_player.has_animation("Jump"):
-		anim_player.play("Jump")
+	if anim_player and anim_player.has_animation("Jump2"):
+		anim_player.play("Jump2")
 
 func fall():
 	if anim_player and anim_player.has_animation("Fall"):
 		anim_player.play("Fall")
 
 func move():
-	run()  # usa la animación de correr cuando se mueve
+	run()
+
+func attack():
+	if anim_player and anim_player.has_animation("Kick"):
+		anim_player.play("Kick")
+	else:
+		print("❌ Animación 'Kick' no encontrada")

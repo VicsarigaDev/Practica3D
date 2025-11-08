@@ -1,0 +1,76 @@
+[gd_scene load_steps=13 format=3 uid="uid://dxvwlq4bnpfxy"]
+
+[ext_resource type="Script" uid="uid://psh7fjk055rv" path="res://enemy_exploder.gd" id="1_w11xh"]
+[ext_resource type="AudioStream" uid="uid://s55pgd7c3o0e" path="res://dramatic-death-collapse-352720.wav" id="2_p7j58"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_p7j58"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3lgjy"]
+radius = 0.4812297
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w11xh"]
+size = Vector3(9.653713, 1, 10.156265)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p7j58"]
+radius = 1.4269544
+
+[sub_resource type="Gradient" id="Gradient_w11xh"]
+offsets = PackedFloat32Array(0, 0.5762712, 1)
+colors = PackedColorArray(0.9843137, 0.11764706, 0, 1, 0.95686275, 0.44705883, 0.2, 1, 0.00020182822, 0, 0.00020182822, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p7j58"]
+gradient = SubResource("Gradient_w11xh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3lgjy"]
+initial_velocity_max = 13.46
+color_ramp = SubResource("GradientTexture1D_p7j58")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w11xh"]
+transparency = 1
+albedo_color = Color(0.90588236, 0.43529412, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_3lgjy"]
+material = SubResource("StandardMaterial3D_w11xh")
+
+[sub_resource type="Skin" id="Skin_ctr3v"]
+
+[node name="EnemyExploder" type="CharacterBody3D"]
+script = ExtResource("1_w11xh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_p7j58")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_3lgjy")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010339737, 0, -0.026023865)
+shape = SubResource("BoxShape3D_w11xh")
+
+[node name="ExplosionArea" type="Area3D" parent="."]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExplosionArea"]
+shape = SubResource("SphereShape3D_p7j58")
+debug_color = Color(0.92456365, 0.118430726, 0.61187893, 0.41960785)
+
+[node name="ExplosionTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="ExplosionParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+emitting = false
+amount = 100
+lifetime = 0.5
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_3lgjy")
+draw_pass_1 = SubResource("SphereMesh_3lgjy")
+draw_skin = SubResource("Skin_ctr3v")
+
+[node name="DeathSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_p7j58")
+
+[connection signal="body_entered" from="ExplosionArea" to="." method="_on_explosion_area_body_entered"]

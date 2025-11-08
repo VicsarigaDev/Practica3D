@@ -86,23 +86,23 @@ directional_shadow_max_distance = 40.0
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -55.25, -17.7152, -20)
 
 [node name="CSGPolygon3D8" type="CSGPolygon3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -72.84165, 8, 9.223312)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -112.45423, 8, 9.223316)
 use_collision = true
 polygon = PackedVector2Array(0, 0, 3, 2, 3, 0)
 depth = 4.0
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -79.81346, -4.5, 11.223312)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -119.26192, -4.5, 11.223316)
 use_collision = true
 size = Vector3(8, 29, 10)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -70.3532, -5.5, 11.223312)
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -110.87341, -5.5, 11.223318)
 use_collision = true
 size = Vector3(7, 27, 11)
 
 [node name="Flag3D" parent="." instance=ExtResource("8_kebk2")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -79.8532, 10, 11.223312)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -119.15277, 9.977751, 11.371022)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 7.5, -20)
@@ -192,7 +192,65 @@ use_collision = true
 size = Vector3(6.913025, 1, 5.956299)
 
 [node name="FallingPlatform" parent="." instance=ExtResource("5_ktfr2")]
-transform = Transform3D(1.4329803, 0, 0, 0, 1, 0, 0, 0, 2.1214387, -59.52043, 7.9259024, 10.994176)
+transform = Transform3D(2.9824958, 0, 0, 0, 1, 0, 0, 0, 2.1214387, -61.534344, 7.9259024, 10.994176)
 
 [node name="FallingPlatform2" parent="." instance=ExtResource("5_ktfr2")]
 transform = Transform3D(1.4329803, 0, 0, 0, 1, 0, 0, 0, 2.1214387, -43.995106, 7.5558634, 10.994176)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.682617, -9.5, -38.37036)
+use_collision = true
+size = Vector3(35.253906, 19, 36.740723)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.902138, 1, -30.475647)
+use_collision = true
+size = Vector3(4, 2, 12.978394)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -90.10443, -5.5, 27.691936)
+use_collision = true
+size = Vector3(7, 27, 11)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -71.43722, -5.5, 27.691935)
+use_collision = true
+size = Vector3(7, 27, 11)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.747852, 3.0778818, -30.475647)
+use_collision = true
+size = Vector3(4, 2, 12.978394)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.36811, 5.221801, -30.475647)
+use_collision = true
+size = Vector3(4, 2, 12.978394)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -71.437225, -5.5, -20.13291)
+use_collision = true
+size = Vector3(7, 27, 11)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.709656, 7.4716797, 11.012886)
+use_collision = true
+size = Vector3(6.913025, 1, 5.956299)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.58069, 7.4716797, 11.012886)
+use_collision = true
+size = Vector3(6.913025, 1, 5.956299)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.602, 7.4716797, 11.012886)
+use_collision = true
+size = Vector3(6.913025, 1, 5.956299)
+
+[node name="FallingPlatform3" parent="." instance=ExtResource("5_ktfr2")]
+transform = Transform3D(2.9824958, 0, 0, 0, 1, 0, 0, 0, 2.1214387, -80.8403, 7.9259024, 10.994176)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.524883, 7.5, -39.341095)
+use_collision = true
+size = Vector3(20.231873, 1, 22.808472)
