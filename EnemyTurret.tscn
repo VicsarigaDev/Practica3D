@@ -13,6 +13,7 @@ script = ExtResource("1_p4od2")
 bullet_scene = ExtResource("2_dvhuw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.7712921, 0, 0, 0)
 mesh = SubResource("PrismMesh_3u2u1")
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -24,4 +25,4 @@ shape = SubResource("BoxShape3D_0fcpr")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Muzzle" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4796455)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8011025)

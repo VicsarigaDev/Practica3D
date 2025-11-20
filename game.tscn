@@ -8,12 +8,11 @@
 [ext_resource type="Script" uid="uid://dglmgqrryaq2x" path="res://HUD.gd" id="7_eow3j"]
 [ext_resource type="AudioStream" uid="uid://dkjj1axc6gms0" path="res://hit-organic-cabbage-glove-omnidirectional-microphone-6.wav" id="8_215e1"]
 [ext_resource type="Script" uid="uid://rednd4n36y7b" path="res://pause_menu.gd" id="8_j5wjh"]
-[ext_resource type="PackedScene" uid="uid://dc5cnhiusnupn" path="res://autoload/Enemy.tscn" id="9_vef74"]
 [ext_resource type="PackedScene" uid="uid://77n6iw45vutb" path="res://EnemyChaser.tscn" id="10_hve3p"]
 [ext_resource type="PackedScene" uid="uid://4spffo2r0vp" path="res://EnemyJumper.tscn" id="11_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://dxvwlq4bnpfxy" path="res://EnemyExploder.tscn" id="12_iotsf"]
 [ext_resource type="PackedScene" uid="uid://do65n36wr7xw5" path="res://EnemyTurret.tscn" id="13_lc2xo"]
-[ext_resource type="PackedScene" uid="uid://cxp5hinqbxsxr" path="res://Enemy.tscn" id="15_7sc4i"]
+[ext_resource type="Script" uid="uid://cmh1j8smqqqht" path="res://camera_3d.gd" id="15_7sc4i"]
 [ext_resource type="PackedScene" uid="uid://bxg6oejpaitdt" path="res://level/interactable/flag/flag_reached_screen.tscn" id="19_cpgj4"]
 
 [sub_resource type="Gradient" id="Gradient_j5wjh"]
@@ -23,11 +22,14 @@ colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_vef74"]
 gradient = SubResource("Gradient_j5wjh")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_80cx4"]
+viewport_path = NodePath("SubViewport")
+
 [node name="Game" type="Node"]
 script = ExtResource("1_1il7v")
 
 [node name="Player3DTemplate" parent="." instance=ExtResource("1_w0p8v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43638, 0, -7.8513)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.242863, -2.1767104, -72.682655)
 
 [node name="FlagReachedScreen" parent="." instance=ExtResource("19_cpgj4")]
 
@@ -38,25 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.4)
 script = ExtResource("5_ryrav")
 
 [node name="Coin" parent="." groups=["coins"] instance=ExtResource("6_eow3j")]
-transform = Transform3D(0.9999997, 0, 0.0007853981, 0, 1, 0, -0.0007853981, 0, 0.9999997, 4.911051, 3.1654854, 2.4653978)
-
-[node name="Coin2" parent="." groups=["coins"] instance=ExtResource("6_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.911051, 4.215891, 2.4653978)
-
-[node name="Coin3" parent="." groups=["coins"] instance=ExtResource("6_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.911051, 5.2092824, 2.4653978)
-
-[node name="Coin4" parent="." groups=["coins"] instance=ExtResource("6_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.911051, 5.1033773, 9.684122)
-
-[node name="Coin5" parent="." groups=["coins"] instance=ExtResource("6_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.619154, 6.840621, 9.501314)
-
-[node name="Coin6" parent="." groups=["coins"] instance=ExtResource("6_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.382096, 7.2373734, 8.478651)
-
-[node name="Coin7" parent="." groups=["coins"] instance=ExtResource("6_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8519, 9.130287, 11.342962)
+transform = Transform3D(0.9999997, 0, 0.0007853981, 0, 1, 0, -0.0007853981, 0, 0.9999997, -43.048405, -2.737668, -57.86016)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("7_eow3j")
@@ -84,17 +68,12 @@ texture_progress = SubResource("GradientTexture1D_vef74")
 [node name="DamageSound" type="AudioStreamPlayer3D" parent="HUD"]
 stream = ExtResource("8_215e1")
 
-[node name="Coin8" parent="." groups=["coins"] instance=ExtResource("6_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.024971, 9.130287, 11.342962)
-
-[node name="Coin9" parent="." groups=["coins"] instance=ExtResource("6_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.187996, 9.130287, 11.342962)
-
-[node name="Coin10" parent="." groups=["coins"] instance=ExtResource("6_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.376144, 9.130287, 11.342962)
-
-[node name="Coin11" parent="." groups=["coins"] instance=ExtResource("6_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.817677, 8.668715, 42.40442)
+[node name="TextureRect" type="TextureRect" parent="HUD"]
+offset_left = 785.0
+offset_top = -6.0
+offset_right = 1041.0
+offset_bottom = 250.0
+texture = SubResource("ViewportTexture_80cx4")
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 1
@@ -127,64 +106,24 @@ layout_mode = 2
 text = "Salir"
 
 [node name="EnemyChaser" parent="." instance=ExtResource("10_hve3p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4251, 1.0000019, -0.008513451)
-
-[node name="Coin12" parent="." groups=["coins"] instance=ExtResource("6_eow3j")]
-transform = Transform3D(0.9999997, 0, 0.0007853981, 0, 1, 0, -0.0007853981, 0, 0.9999997, -57.63304, 9.467512, -0.86993074)
-
-[node name="Coin13" parent="." groups=["coins"] instance=ExtResource("6_eow3j")]
-transform = Transform3D(0.9999997, 0, 0.0007853981, 0, 1, 0, -0.0007853981, 0, 0.9999997, -57.64357, 9.467512, -14.273298)
-
-[node name="Coin14" parent="." groups=["coins"] instance=ExtResource("6_eow3j")]
-transform = Transform3D(0.9999997, 0, 0.0007853981, 0, 1, 0, -0.0007853981, 0, 0.9999997, -44.510002, 9.467512, -0.8802376)
-
-[node name="Coin15" parent="." groups=["coins"] instance=ExtResource("6_eow3j")]
-transform = Transform3D(0.9999997, 0, 0.0007853981, 0, 1, 0, -0.0007853981, 0, 0.9999997, -44.521744, 9.467512, -15.828606)
-
-[node name="Coin16" parent="." groups=["coins"] instance=ExtResource("6_eow3j")]
-transform = Transform3D(0.9999997, 0, 0.0007853981, 0, 1, 0, -0.0007853981, 0, 0.9999997, -51.41039, 9.467512, -9.190998)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.247757, -3.3054805, -49.681183)
 
 [node name="EnemyExploder2" parent="." instance=ExtResource("12_iotsf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.963287, 8.5, -8.157467)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.112757, -3.6961145, -12.749927)
 
 [node name="EnemyTurret2" parent="." instance=ExtResource("13_lc2xo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.19504, 8.499998, 58.820744)
-
-[node name="EnemyTurret3" parent="." instance=ExtResource("13_lc2xo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.42225, 8.500002, 59.380512)
-
-[node name="EnemyTurret4" parent="." instance=ExtResource("13_lc2xo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.68467, 8.5, 59.030285)
-
-[node name="EnemyTurret5" parent="." instance=ExtResource("13_lc2xo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.78443, 8.5, 59.446896)
-
-[node name="EnemyJumper2" parent="." instance=ExtResource("11_mfdv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.42867, 9, 42.756554)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -43.259285, -3.8510623, -31.562687)
 
 [node name="EnemyJumper3" parent="." instance=ExtResource("11_mfdv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.587723, 8.97168, 42.873165)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.824358, -3.4818306, -71.974396)
 
-[node name="EnemyChaser2" parent="." instance=ExtResource("10_hve3p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.535784, 7.2218, 0.6061232)
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(256, 256)
 
-[node name="Enemy2" parent="." instance=ExtResource("15_7sc4i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6784506, 0.04095936, -2.5385609)
-
-[node name="Enemy3" parent="." instance=ExtResource("9_vef74")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1797304, 1.2618513, -3.6264257)
-
-[node name="Coin17" parent="." instance=ExtResource("6_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.10126, 0.45789912, 7.3533363)
-
-[node name="Coin18" parent="." instance=ExtResource("6_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.443316, 0.45789817, 1.7715664)
-
-[node name="Coin19" parent="." instance=ExtResource("6_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.012676, 0.45789722, 7.804413)
-
-[node name="Coin20" parent="." instance=ExtResource("6_eow3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.860691, 0.45789722, 2.4391327)
+[node name="Camera3D" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, -0.0003141602, 0.99999994, 0, -0.99999994, -0.0003141602, -43.059124, 8.845639, -69.843315)
+script = ExtResource("15_7sc4i")
+player = NodePath("../../Player3DTemplate")
 
 [connection signal="collected" from="Coin" to="GameManager" method="_on_coin_collected"]
 [connection signal="collected" from="Coin" to="HUD" method="_on_coin_collected"]

@@ -1,5 +1,9 @@
 extends CharacterBody3D
 
+
+@export var fall_limit: float = -100.0
+@export var game_over_scene: PackedScene
+
 # --- MOVIMIENTO ---
 @export_group("Movement")
 @export var move_speed := 8.0
@@ -117,6 +121,9 @@ func _physics_process(delta: float) -> void:
 	_was_on_floor_last_frame = is_on_floor()
 	move_and_slide()
 
+	# Checar si caí más allá del límite
+	if global_position.y < fall_limit:
+		get_tree().change_scene_to_packed(game_over_scene)
 # --- ATAQUE ---
 func _attack() -> void:
 	if _is_attacking:

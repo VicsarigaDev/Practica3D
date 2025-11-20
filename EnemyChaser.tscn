@@ -21,6 +21,7 @@ script = ExtResource("1_fxeuq")
 mesh = SubResource("CapsuleMesh_fxeuq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.0982962, 0, 0, 0, 1, 0, 0, 0, 1.0476791, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_4msyp")
 debug_color = Color(0.89889395, 0.20209405, 0.60353506, 0.41960785)
 
@@ -28,7 +29,7 @@ debug_color = Color(0.89889395, 0.20209405, 0.60353506, 0.41960785)
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VisionArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026898384, 0, -0.12293482)
+transform = Transform3D(1.5732327, 0, 0, 0, 1.211, 0, 0, 0, 1.7195534, -0.026898384, 0, -0.12293482)
 shape = SubResource("BoxShape3D_exobn")
 
 [node name="DamageArea" type="Area3D" parent="."]

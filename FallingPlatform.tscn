@@ -15,6 +15,7 @@ albedo_color = Color(1, 1, 0.4862745, 1)
 size = Vector3(1.8589478, 0.2902832, 1.8505859)
 
 [node name="FallingPlatform" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_xvl4r")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
